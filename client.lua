@@ -412,7 +412,7 @@ local function canUseItem(isAmmo)
 end
 
 ---@param data table
----@param cb fun(response: SlotWithItem | false)?
+---@param cb? fun(response: SlotWithItem | false)
 local function useItem(data, cb)
 	local slotData, result = PlayerData.inventory[data.slot]
 

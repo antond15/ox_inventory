@@ -112,8 +112,8 @@ else
 end
 
 ---@param search 'slots' | 1 | 'count' | 2
----@param item table | string
----@param metadata? table | string
+---@param item string | string[]
+---@param metadata? string | table<string, any>
 function Inventory.Search(search, item, metadata)
 	if not PlayerData.loaded then
 		if not coroutine.running() then
@@ -176,7 +176,7 @@ local function assertMetadata(metadata)
 end
 
 ---@param itemName string
----@param metadata? any
+---@param metadata? string | table<string, any>
 ---@param strict? boolean Strictly match metadata properties, otherwise use partial matching.
 ---@return SlotWithItem?
 function Inventory.GetSlotWithItem(itemName, metadata, strict)
@@ -198,7 +198,7 @@ end
 exports('GetSlotWithItem', Inventory.GetSlotWithItem)
 
 ---@param itemName string
----@param metadata? any
+---@param metadata? string | table<string, any>
 ---@param strict? boolean Strictly match metadata properties, otherwise use partial matching.
 ---@return number?
 function Inventory.GetSlotIdWithItem(itemName, metadata, strict)
@@ -208,7 +208,7 @@ end
 exports('GetSlotIdWithItem', Inventory.GetSlotIdWithItem)
 
 ---@param itemName string
----@param metadata? any
+---@param metadata? string | table<string, any>
 ---@param strict? boolean Strictly match metadata properties, otherwise use partial matching.
 ---@return SlotWithItem[]?
 function Inventory.GetSlotsWithItem(itemName, metadata, strict)
@@ -236,7 +236,7 @@ end
 exports('GetSlotsWithItem', Inventory.GetSlotsWithItem)
 
 ---@param itemName string
----@param metadata? any
+---@param metadata? string | table<string, any>
 ---@param strict? boolean Strictly match metadata properties, otherwise use partial matching.
 ---@return number[]?
 function Inventory.GetSlotIdsWithItem(itemName, metadata, strict)
@@ -253,7 +253,7 @@ function Inventory.GetSlotIdsWithItem(itemName, metadata, strict)
 end
 
 ---@param itemName string
----@param metadata? any
+---@param metadata? string | table<string, any>
 ---@param strict? boolean Strictly match metadata properties, otherwise use partial matching.
 ---@return number
 function Inventory.GetItemCount(itemName, metadata, strict)

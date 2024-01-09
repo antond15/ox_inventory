@@ -222,7 +222,7 @@ end)
 
 ---@param playerId number
 ---@param invType string
----@param data string|number|table
+---@param data? string|number|table
 exports('forceOpenInventory', function(playerId, invType, data)
 	local left, right = openInventory(playerId, invType, data, true)
 
